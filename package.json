@@ -11,7 +11,7 @@
     "tsc": "tsc",
     "build": "tsc --project ./",
     "start": "node build/",
-    "dev:addResource": "tsc --project ./ &  node build/index.js addResource https://xwiki-app.brux.space/bin/view/Personal%20Space/Ladislav%20Gazo/Kubernetes",
+    "dev:addResource": "tsc --project ./ &  node build/index.js addResource https://www.xwiki.org/xwiki/bin/view/Documentation/UserGuide",
     "dev:help": "tsc --project ./ &  node build/index.js --help",
     "dev:clean": "tsc --project ./ &  node build/index.js",
     "dev:download": "tsc --project ./ &  node build/index.js download"
