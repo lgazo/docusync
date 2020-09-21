@@ -32,6 +32,9 @@ Configuration for the tool is read from `$HOME/.config/configstore/docusync.json
 
 ```json
 {
+  "base": {
+    "dir": "build"
+  },
   "credentials": {
     "default": {
       "username": "abc",
@@ -49,6 +52,8 @@ Configuration for the tool is read from `$HOME/.config/configstore/docusync.json
   }
 }
 ```
+
+The field `base` is optional. If not defined then current working directory is used.
 
 > [!NOTE] nr.1 only `default` source works at the moment
 

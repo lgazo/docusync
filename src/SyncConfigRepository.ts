@@ -3,10 +3,12 @@ import path from 'path';
 
 const EMPTY_CONFIG = {};
 
-const getFile = () => path.join(__dirname, '.docusync.json');
+// const getFile = () => path.join(__dirname, '.docusync.json');
+const getFile = (baseDir: string) => path.join(baseDir, '.docusync.json');
 
 const readConfig = async (config: any, syncConfig: Record<string, any>) => {
-    const syncConfigFile: string = getFile();
+    const baseDir = config.get(['base','dir'].join('.')) || process.cwd();
+    const syncConfigFile: string = getFile(baseDir);
 
     try {
         // console.log(`Checking access`);
@@ -25,7 +27,8 @@ const readConfig = async (config: any, syncConfig: Record<string, any>) => {
 };
 
 export const addResource = (config: any) => async (resource: string) => {
-    const syncConfigFile: string = getFile();
+    const baseDir = config.get(['base','dir'].join('.')) || process.cwd();
+    const syncConfigFile: string = getFile(baseDir);
     console.log(`Fetching sync config from ${syncConfigFile}`);
 
     let syncConfig: Record<string, any> = {};

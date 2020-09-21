@@ -4,9 +4,10 @@ import path from 'path';
 import { Document, Status } from './types';
 
 export const writeDocument = (config: Record<string, any>) => async (document: Document): Promise<Status> => {
+    const baseDir = config.get(['base','dir'].join('.')) || process.cwd();
     const documentTargetDir = config.get(['sources', 'default', 'target', 'dir'].join('.'));
     const filename = `${document.targetPath}.md`;
-    const canonicalFilenamePath = path.join(__dirname, documentTargetDir, filename);
+    const canonicalFilenamePath = path.join(baseDir, documentTargetDir, filename);
 
     const canonicalDirectory = canonicalFilenamePath.substring(0, canonicalFilenamePath.lastIndexOf(path.sep));
 

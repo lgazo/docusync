@@ -7,6 +7,10 @@
   "bin": {
     "docusync": "./build/index.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lgazo/docusync.git"
+  },
   "scripts": {
     "tsc": "tsc",
     "build": "tsc --project ./",
@@ -14,7 +18,8 @@
     "dev:addResource": "tsc --project ./ &  node build/index.js addResource https://www.xwiki.org/xwiki/bin/view/Documentation/UserGuide",
     "dev:help": "tsc --project ./ &  node build/index.js --help",
     "dev:clean": "tsc --project ./ &  node build/index.js",
-    "dev:download": "tsc --project ./ &  node build/index.js download"
+    "dev:download": "tsc --project ./ &  node build/index.js download",
+    "test": "echo \"No test specified\""
   },
   "devDependencies": {
     "@types/node": "14.6.4",
