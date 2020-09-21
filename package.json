@@ -12,14 +12,17 @@
     "type": "git",
     "url": "git+https://github.com/lgazo/docusync.git"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "tsc": "tsc",
     "build": "tsc",
-    "prepare" : "npm run build",
-    "prepublishOnly" : "npm test && npm run lint",
-    "preversion" : "npm run lint",
-    "version" : "npm run format && git add -A src",
-    "postversion" : "git push && git push --tags",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags",
     "start": "node build/",
     "dev:addResource": "tsc --project ./ &  node build/index.js addResource https://www.xwiki.org/xwiki/bin/view/Documentation/UserGuide",
     "dev:help": "tsc --project ./ &  node build/index.js --help",
