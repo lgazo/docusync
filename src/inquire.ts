@@ -9,8 +9,8 @@ const askCommandName = async () => {
             name: 'name',
             type: 'list',
             message: 'What do you command, my lord?',
-            choices: keys()
-        }
+            choices: keys(),
+        },
     ];
     return inquirer.prompt(questions);
 };
@@ -22,28 +22,29 @@ const askArguments = async (commandName: string) => {
                 {
                     name: 'url',
                     type: 'string',
-                    message: 'Enter absolute URL to the resource you would like to download and synchronize in the future'
-                }
-            ])
+                    message:
+                        'Enter absolute URL to the resource you would like to download and synchronize in the future',
+                },
+            ]);
         case CommandType.enterCredentials.id:
             return inquirer.prompt([
                 {
                     name: 'datasource',
                     type: 'list',
                     choices: ['xwiki'],
-                    message: 'Select the datasource you want to assign credentials to'
+                    message: 'Select the datasource you want to assign credentials to',
                 },
                 {
                     name: 'username',
                     type: 'string',
-                    message: 'User name'
+                    message: 'User name',
                 },
                 {
                     name: 'password',
                     type: 'password',
-                    message: 'Password'
-                }
-            ])
+                    message: 'Password',
+                },
+            ]);
         default:
             return Promise.resolve([]);
     }
@@ -54,8 +55,8 @@ export const askInteractively = async () => {
     const commandArguments = await askArguments(commandName.name);
     const command: Command = {
         name: commandName.name,
-        arguments: commandArguments
+        arguments: commandArguments,
     };
     // console.log(`Inquired command ${command}`);
     return command;
-}
+};

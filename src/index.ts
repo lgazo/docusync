@@ -22,23 +22,25 @@ console.log(
             horizontalLayout: 'default',
             verticalLayout: 'default',
             width: 80,
-            whitespaceBreak: true
-        })));
+            whitespaceBreak: true,
+        })
+    )
+);
 
 type HandlerKey = {
-    handler: Function
-}
+    handler: Function;
+};
 const availableCommands: Record<string, HandlerKey> = {
     download: {
-        handler: download
+        handler: download,
     },
     addResource: {
-        handler: addResource
+        handler: addResource,
     },
     enterCredentials: {
-        handler: enterCredentials
-    }
-}
+        handler: enterCredentials,
+    },
+};
 
 const run = async () => {
     // console.log(config)
@@ -50,12 +52,10 @@ const run = async () => {
         command = await askInteractively();
     }
 
-    if(command.name !== null) {
-        const commandName:string = command.name;
+    if (command.name !== null) {
+        const commandName: string = command.name;
         await availableCommands[commandName].handler(command.arguments, config);
     }
 };
 
 run();
-
-

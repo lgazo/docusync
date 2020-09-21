@@ -85,3 +85,9 @@ It will download the content based on the synchronization file `.docusync.json` 
 # Inspiration
 
 * XWiki inspiration in https://github.com/PayEx/xwiki-sync
+
+# Development
+
+## Publish
+
+* follows https://itnext.io/step-by-step-building-and-publishing-an-npm-typescript-package-44fe7164964c

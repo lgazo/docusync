@@ -4,7 +4,7 @@ import path from 'path';
 import { Document, Status } from './types';
 
 export const writeDocument = (config: Record<string, any>) => async (document: Document): Promise<Status> => {
-    const baseDir = config.get(['base','dir'].join('.')) || process.cwd();
+    const baseDir = config.get(['base', 'dir'].join('.')) || process.cwd();
     const documentTargetDir = config.get(['sources', 'default', 'target', 'dir'].join('.'));
     const filename = `${document.targetPath}.md`;
     const canonicalFilenamePath = path.join(baseDir, documentTargetDir, filename);
@@ -13,24 +13,23 @@ export const writeDocument = (config: Record<string, any>) => async (document: D
 
     try {
         await fs.promises.access(canonicalDirectory, fs.constants.W_OK);
-    } catch(e) {
+    } catch (e) {
         await fs.promises.mkdir(canonicalDirectory, { recursive: true });
         console.log(`INFO: created directory ${canonicalDirectory}`);
     }
 
     try {
-        await fs.promises.access(document.targetPath, fs.constants.W_OK)
+        await fs.promises.access(document.targetPath, fs.constants.W_OK);
         console.log(`INFO: document ${document.targetPath} exists`);
-    } catch(e) {
+    } catch (e) {
         // no worries, we will create it anyway
     }
 
     try {
         await fs.promises.writeFile(canonicalFilenamePath, document.content);
         return Status.ok;
-    } catch(e) {
+    } catch (e) {
         console.error(`ERROR: unable to write file ${canonicalFilenamePath}`, e);
         return Status.fail;
     }
-    
-}
+};
