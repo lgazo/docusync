@@ -1,6 +1,6 @@
-//@ts-ignore
+// @ts-ignore
 import fetch from 'node-fetch';
-//@ts-ignore
+// @ts-ignore
 import CLI from 'clui';
 import { Document } from './types';
 

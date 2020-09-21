@@ -1,4 +1,4 @@
-//@ts-ignore
+// @ts-ignore
 import inquirer from 'inquirer';
 
 import { CommandType, keys, Command } from './types';

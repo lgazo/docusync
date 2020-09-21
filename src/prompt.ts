@@ -1,4 +1,4 @@
-//@ts-ignore
+// @ts-ignore
 import yargs from 'yargs';
 
 import { Command, CommandType } from './types';

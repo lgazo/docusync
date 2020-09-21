@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
-//@ts-ignore
+// @ts-ignore
 import figlet from 'figlet';
 import chalk from 'chalk';
-//@ts-ignore
+// @ts-ignore
 import Configstore from 'configstore';
 
 import { download } from './DownloadCommand';
@@ -31,6 +31,7 @@ type HandlerKey = {
     handler: Function;
 };
 const availableCommands: Record<string, HandlerKey> = {
+    // @ts-nocheck
     download: {
         handler: download,
     },
